@@ -15,6 +15,28 @@ public class PhoneBook {
             phoneBook.put(name, arr);
         }
     }
+    public void sortPhoneBook() {
+        if (phoneBook.isEmpty()) {
+            System.out.println("Телефонная книга пуста");
+        }
+        HashMap<String, ArrayList<String>> sortedPhoneBook = new HashMap<>();
+        ArrayList<Map.Entry<String, ArrayList<String>>> list = new ArrayList<>(phoneBook.entrySet());
+        list.sort(Comparator.comparingInt(entry -> -entry.getValue().size()));
+
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+
+        }
+    }
+    public void deleteContact(String name){
+        phoneBook.remove(name);
+    }
+    public void deleteAll() {
+        phoneBook.clear();
+
+    }
+}
 
 public class Main {
 
