@@ -1,3 +1,21 @@
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+
+public class PhoneBook {
+    private static HashMap<String, ArrayList<String>> phoneBook = new HashMap<>();
+
+    public void addContact(String name, String phoneNum) {
+        if (phoneBook.containsKey(name)) {
+            phoneBook.get(name).add(phoneNum);
+        } else {
+            ArrayList<String> arr = new ArrayList<>();
+            arr.add(phoneNum);
+            phoneBook.put(name, arr);
+        }
+    }
+
 public class Main {
 
 
@@ -20,5 +38,6 @@ public class Main {
         phoneBook.sortPhoneBook();
   
     }
-    
+
   }
+
